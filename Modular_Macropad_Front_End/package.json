@@ -1,0 +1,26 @@
+{
+  "name": "modular-macropad-front-end",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tsconfig/svelte": "^5.0.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "svelte": "^5.19.6",
+    "svelte-check": "^4.1.4",
+    "tailwindcss": "^4.0.7",
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0"
+  },
+  "dependencies": {
+    "lucide-svelte": "^0.475.0"
+  }
+}
