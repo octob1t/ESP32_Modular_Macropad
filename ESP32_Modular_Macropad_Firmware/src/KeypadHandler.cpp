@@ -11,14 +11,6 @@ const char keys[ROWS][COLS] = {
     {'K', 'L', 'M', 'N', 'O'}   // Row 4: all columns
 };
 
-// Create custom keymap that ignores 'X' positions
-Keypad keypad = Keypad(makeKeymap(keys), ROW_PINS, COL_PINS, ROWS, COLS);
-
-void initializeKeypad() {
-    // Set NO_KEY for positions marked with 'X'
-    keypad.setKeymap((char*)keys);
-}
-
 char getKey() {
     char key = keypad.getKey();
     // Don't return 'X' keys
