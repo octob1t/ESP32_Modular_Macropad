@@ -1,3 +1,4 @@
+// ModuleInfo.cpp
 #include "ModuleInfo.h"
 #include <ArduinoJson.h>
 
@@ -21,7 +22,8 @@ void initializeModuleInfo() {
         .numAS5600Encoders = 0,
         .moduleVersion = "1.0.0",
         .uniqueId = String(uniqueId),
-        .customName = ""
+        .customName = "",
+        .numLayers = 4
     };
 }
 
@@ -45,6 +47,7 @@ String getModuleInfoJson() {
     doc["moduleVersion"] = currentModule.moduleVersion;
     doc["uniqueId"] = currentModule.uniqueId;
     doc["customName"] = currentModule.customName;
+    doc["numLayers"] = currentModule.numLayers;
     
     String output;
     serializeJson(doc, output);

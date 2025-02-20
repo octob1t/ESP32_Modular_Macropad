@@ -1,3 +1,4 @@
+// ModuleInfo.h
 #ifndef MODULE_INFO_H
 #define MODULE_INFO_H
 
@@ -40,6 +41,7 @@ struct ModuleCapabilities {
     String moduleVersion;
     String uniqueId;            // Derived from chip ID
     String customName;          // For CUSTOM type modules
+    uint8_t numLayers;          // Number of available layers
 };
 
 // Function declarations

@@ -1,16 +1,29 @@
-// main.cpp
 #include "DisplayHandler.h"
-#include "KeypadHandler.h"
+#include "KeyHandler.h"
 #include "EncoderHandler.h"
 #include "LEDHandler.h"
+#include "SerialHandler.h"
+#include "ModuleInfo.h"
+
+KeyHandler* keyHandler;
 
 void setup() {
-    Serial.begin(115200);
+    // Initialize module info first
+    initializeModuleInfo();
     
-    // Initialize all components
+    // Initialize serial handler
+    initializeSerialHandler();
+    
+    // Initialize display
     initializeDisplay();
-    initializeKeypad();
+    
+    // Initialize key matrix
+    setupKeys(); // This will create the keyHandler instance
+    
+    // Initialize encoder
     initializeEncoder();
+    
+    // Initialize LEDs
     initializeLED();
     
     // Initial display setup
@@ -20,23 +33,36 @@ void setup() {
 }
 
 void loop() {
-    // Handle keypad input
-    char key = getKey();
-    if (key) {
-        // Handle key press
-        Serial.println(key);
+    // Handle serial commands
+    handleSerialCommands();
+    
+    // Handle key inputs
+    char key = keyHandler->getKey();
+    if (key != NO_KEY) {
+        // Get key index and handle press
+        handleKeyPress(key);
     }
     
     // Handle encoder
     handleEncoderMovement();
     
-    // Update display as needed
+    // Update display
     updateDisplay();
-    
-    // Example LED feedback
-    if (key) {
-        setLEDColor(255, 0, 0);  // Red when key pressed
-        delay(100);
-        setLEDColor(0, 0, 0);    // Off
+}
+
+void handleKeyPress(char key) {
+    // Find key index in your mapping
+    int keyIndex = getKeyIndex(key);
+    if (keyIndex >= 0 && keyIndex < 18) {
+        // Set LED color from config
+        uint32_t color = currentConfig.keys[keyIndex].ledColor;
+        setLEDColor(keyIndex, 
+            (color >> 16) & 0xFF,  // Red
+            (color >> 8) & 0xFF,   // Green
+            color & 0xFF           // Blue
+        );
+        
+        // Send key press event over serial
+        Serial.printf("{\"event\":\"keyPress\",\"key\":%d}\n", keyIndex);
     }
 }

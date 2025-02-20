@@ -1,0 +1,10 @@
+{
+    "keys": [
+        {"name": "Key 1", "color": 65280, "macro": ""},
+        {"name": "Key 2", "color": 65280, "macro": ""}
+    ],
+    "encoder": {
+        "mode": 0,
+        "function": "volume"
+    }
+}
