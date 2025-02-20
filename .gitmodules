@@ -1,3 +1,6 @@
 [submodule "Hardware"]
 	path = Hardware
 	url = https://github.com/octob1t/Macropad_Main_Hardware
+[submodule "Modular_Macropad_Hardware_Kicad"]
+	path = Modular_Macropad_Hardware_Kicad
+	url = https://github.com/octob1t/Modular_Macropad_Hardware_Kicad
