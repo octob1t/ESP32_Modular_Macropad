@@ -1,0 +1,3 @@
+[submodule "Hardware"]
+	path = Hardware
+	url = https://github.com/octob1t/Macropad_Main_Hardware
