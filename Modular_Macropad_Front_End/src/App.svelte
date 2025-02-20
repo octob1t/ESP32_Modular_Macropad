@@ -1,7 +1,10 @@
-<!-- src/App.svelte -->
+<!--  src/App.svelte  -->
+
 <script>
-  import { Keyboard, Lightbulb, Settings } from 'lucide-svelte'
-  import KeysTab from './components/keys/KeysTab.svelte'
+  import { Keyboard, Lightbulb, Settings } from 'lucide-svelte';
+  import KeysTab from './components/keys/KeysTab.svelte';
+  import LightingsTab from './components/lightings/LightingsTab.svelte';
+  import SettingsTab from './components/settings/SettingsTab.svelte';
 
   let activeTab = 'keys';
 </script>
@@ -46,8 +49,8 @@
     {#if activeTab === 'keys'}
       <KeysTab />
     {:else if activeTab === 'lighting'}
-      <LightingTab />
-    {:else}
+      <LightingsTab />
+    {:else if activeTab === 'settings'}
       <SettingsTab />
     {/if}
   </div>
