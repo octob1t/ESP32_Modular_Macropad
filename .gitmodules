@@ -4,3 +4,6 @@
 [submodule "Modular_Macropad_Hardware_Kicad"]
 	path = Modular_Macropad_Hardware_Kicad
 	url = https://github.com/octob1t/Modular_Macropad_Hardware_Kicad
+[submodule "Macropad_3d_Files"]
+	path = Macropad_3d_Files
+	url = git@github.com:octob1t/Macropad_3d_Files.git

@@ -1,4 +1,3 @@
-
 <!--  components/keys/MacropadDisplay.svelte  -->
 
 <script>
