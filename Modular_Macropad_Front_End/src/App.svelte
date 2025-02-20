@@ -2,8 +2,6 @@
 <script>
   import { Keyboard, Lightbulb, Settings } from 'lucide-svelte'
   import KeysTab from './components/keys/KeysTab.svelte'
-  import LightingTab from './components/lighting/LightingTab.svelte'
-  import SettingsTab from './components/settings/SettingsTab.svelte'
 
   let activeTab = 'keys';
 </script>
